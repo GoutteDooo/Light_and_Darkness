@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=4 uid="uid://dytguhn6lyxlc"]
+
+[ext_resource type="Texture2D" uid="uid://76nqf73uxmde" path="res://icon.svg" id="1_83smh"]
+[ext_resource type="PackedScene" uid="uid://6vovq5ky727k" path="res://Scenes/Characters/lulu.tscn" id="2_2xy5b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7l4jf"]
+texture = ExtResource("1_83smh")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_nkrj0"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7l4jf")
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(3, -305)
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAABAAcAAAAAAAAAAAALAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_nkrj0")
+
+[node name="Lulu" parent="." instance=ExtResource("2_2xy5b")]
+position = Vector2(819, 663)
+
+[node name="Camera2D" type="Camera2D" parent="Lulu"]
+position = Vector2(1, -19)
+zoom = Vector2(2, 2)
